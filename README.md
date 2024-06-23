@@ -11,19 +11,20 @@
 ## 2. Data Sources
   The data source includes 22,214 personnel records from 2000 to 2020. This data is included in the project's archive.
 - Data table structure:
--- **id**: Employee identifier
--- **first_name**: Employee's first name
--- **last_name**: Employee's last name
--- **birthdate**: Employee's date of birth
--- **gender**: Gender of the employee
--- **race**: Race of the employee
--- **department**: The employee's work department
--- **jobtitle**: Employee's job title
--- **location**: Employee's working location
--- **hire_date**: Employee's start date
--- **termdate**: Employee's end date (if any)
--- **location_city**: City where the employee works
--- **location_state**: State where the employee works
+
+	- **id**: Employee identifier
+	- **first_name**: Employee's first name
+	- **last_name**: Employee's last name
+ 	- **birthdate**: Employee's date of birth
+	- **gender**: Gender of the employee
+	- **race**: Race of the employee
+	- **department**: The employee's work department
+	- **jobtitle**: Employee's job title
+	- **location**: Employee's working location
+	- **hire_date**: Employee's start date
+	- **termdate**: Employee's end date (if any)
+	- **location_city**: City where the employee works
+	- **location_state**: State where the employee works
 
 ## 3. Exploratory Data Analysis
 ### 3.1. Data cleaning
@@ -43,6 +44,7 @@
 	SELECT * FROM hr_data;
 *c/ Data Cleaning*
 The termdate was imported as nvarchar(50). This column contains termination dates, hence it needs to be converted to the date format.
+
 ![image](https://github.com/anhthy0108/HR-DATA-ANALYSIS/assets/149523570/0f078356-8214-496e-bef9-1bf9405a092c)
 
 **Update termdate date/time to date:**
@@ -68,8 +70,10 @@ The termdate was imported as nvarchar(50). This column contains termination date
 	UPDATE hr_data
 	SET age = DATEDIFF(YEAR,birthdate,GETDATE());
 ### 3.2. Data analysis
-QUESTIONS TO ANSWER FROM THE DATA
+*QUESTIONS TO ANSWER FROM THE DATA*
+
 **1) What's the age distribution in the company? Age group: (21 to 30; 31 to 40; 41 to 50; 51+)**
+
 *+ Age distribution*
 #
 	SELECT MAX(age) AS oldest, MIN(age) AS youngest
